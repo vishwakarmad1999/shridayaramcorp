@@ -1,0 +1,25 @@
+# Compiled output and temporary files
+/build/
+/dist/
+/tmp/
+*.log
+*.tmp
+
+# Dependency directories (if applicable, e.g., in a front-end build setup)
+/node_modules/
+/bower_components/
+
+# OS and Editor-specific files
+.DS_Store # macOS hidden files
+Thumbs.db # Windows thumbnail cache
+*.iml     # IntelliJ/WebStorm project files
+.idea/    # Directory-based project format for JetBrains IDEs
+.vscode/  # VS Code configuration (optional, if personal)
+*.sublime-project
+*.sublime-workspace
+
+# Vite
+.vite/
+
+# Miscellaneous 
+makefile
