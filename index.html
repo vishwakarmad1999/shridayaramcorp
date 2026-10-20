@@ -7,6 +7,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
     <meta name="theme-color" content="#155e95">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="styles.css">
     <title>Shri. Dayaram Corporation</title>
     <meta name="description"
@@ -22,19 +26,131 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Shri. Dayaram Corp. mandala logo with the tagline crafting timeless technology">
     <meta name="twitter:card" content="summary_large_image">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <img src="./assets/sdclogo_wo_tagline.png" alt="Shri. Dayaram Corporation Logo" class="logo">
+    <header class="hero">
+        <div class="hero-inner">
+            <img src="./assets/sdclogo_wo_tagline.png" alt="Shri. Dayaram Corp." class="logo" width="500" height="500">
 
-        <p class="comfortaa tagline">crafting timeless technology</p>
+            <p class="tagline">crafting timeless technology</p>
 
-        <div class="contact-details">
-            <p class="comfortaa contact-item">Contact No: <a href="tel:+918965950090"
-                    class="contact-number">+91-8965950090</a></p>
+            <p class="hero-lede">
+                We build software that helps businesses run: inventory, billing, customer relations, and whatever
+                else you need.
+            </p>
+
+            <div class="actions">
+                <a href="tel:+918965950090" class="button button-solid">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
+                    </svg>
+                    +91-8965950090
+                </a>
+                <a href="#build" class="button button-outline">see what we build</a>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <main>
+        <section id="build" class="section section-cream">
+            <div class="mandala-decor mandala-decor-right" aria-hidden="true"></div>
+
+            <div class="section-inner">
+                <h2 class="section-title reveal">we build <span class="underline">software</span> products</h2>
+
+                <ul class="cards">
+                    <li class="card reveal">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+                            <path d="M3 8l9 5 9-5" />
+                            <path d="M12 13v8" />
+                        </svg>
+                        <h3>inventory management</h3>
+                        <p>Track stock, movement and reorders in one place, so you always know what you have.</p>
+                    </li>
+                    <li class="card reveal">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2z" />
+                            <path d="M9 7h6M9 11h6M9 15h4" />
+                        </svg>
+                        <h3>billing management</h3>
+                        <p>Create invoices, record payments and keep your accounts tidy without the paperwork.</p>
+                    </li>
+                    <li class="card reveal">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="9" cy="8" r="4" />
+                            <path d="M2 21v-1a7 7 0 0 1 14 0v1" />
+                            <path d="M16 4a4 4 0 0 1 0 8M22 21v-1a7 7 0 0 0-4-6.3" />
+                        </svg>
+                        <h3>crm</h3>
+                        <p>Keep every customer, conversation and follow-up together, and never miss a lead.</p>
+                    </li>
+                    <li class="card card-accent reveal">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" />
+                        </svg>
+                        <h3>anything that <span class="underline">you</span> ask for</h3>
+                        <p>Have something specific in mind? Tell us what your business needs, and we'll build it.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section section-blue">
+            <div class="mandala-decor mandala-decor-left" aria-hidden="true"></div>
+
+            <div class="section-inner">
+                <h2 class="section-title reveal">in their words</h2>
+
+                <div class="testimonials">
+                    <figure class="testimonial reveal">
+                        <blockquote>
+                            <p>I used to keep every service card on paper, and finding one meant flipping through
+                                registers while the customer waited. Now I type the vehicle number on my phone and
+                                it's all there: the card, the discount, every past service. The counter moves faster
+                                and nothing gets lost. Dev built it around how my shop actually runs, and if I
+                                need something changed, it's just a call away.</p>
+                        </blockquote>
+                        <figcaption>
+                            <span class="testimonial-name">Divyanshu Thakur</span>
+                            <span class="testimonial-role">Shree Vidya Arts, Seoni</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="testimonial reveal">
+                        <blockquote>
+                            <p>Getting my business online always felt like a big technical job I kept putting off.
+                                Dev set up my website from start to finish and explained everything in plain words.
+                                Now I share one link instead of explaining everything over the phone. Easily the
+                                smoothest part of setting up my business.</p>
+                        </blockquote>
+                        <figcaption>
+                            <span class="testimonial-name">Vikas Kapoor</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-cream">
+            <div class="section-inner contact reveal">
+                <h2 class="section-title">let's build something timeless</h2>
+                <p class="contact-lede">Talk to Divya Vishwakarma (Dev) directly about what you need.</p>
+                <a href="tel:+918965950090" class="button button-solid button-large">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
+                    </svg>
+                    +91-8965950090
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="year">2026</span> Shri. Dayaram Corp. &middot; crafting timeless technology</p>
+    </footer>
 </body>
 
 </html>

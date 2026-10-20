@@ -1,60 +1,436 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+:root {
+  --blue: #155e95;
+  --blue-deep: #104a76;
+  --cream: #ede9dd;
+  --paper: #fbfaf6;
+  --ink: #1d2a35;
+  --ink-soft: #3c4a55;
+  --line: #d6d0c0;
+
+  --font-display: "Comfortaa", sans-serif;
+  --font-body: "Comfortaa", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
+  background-color: var(--blue);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  /* Comfortaa's round letters sit tight at body sizes; a little air helps */
+  letter-spacing: 0.01em;
+}
+
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------- buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 2px solid var(--cream);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 3px;
+}
+
+.button-solid {
+  background: var(--cream);
+  color: var(--blue);
+}
+
+.button-solid:hover {
+  background: #ffffff;
+}
+
+.button-outline {
+  background: transparent;
+  color: var(--cream);
+}
+
+.button-outline:hover {
+  background: rgba(237, 233, 221, 0.12);
+}
+
+.button-large {
+  font-size: 1.15rem;
+  padding: 1rem 2rem;
+}
+
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  background-color: #155e95;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.comfortaa {
-  font-family: "Comfortaa", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  color: #ede9dd;
-}
-
-.container {
-  display: flex;
   justify-content: center;
+  padding: 3rem 1rem;
+  color: var(--cream);
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
   flex-direction: column;
-  max-width: 800px;
+  align-items: center;
+  max-width: 720px;
 }
 
 .logo {
-  width: 40rem;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: min(28rem, 100%);
+  height: auto;
+  animation: rise 1s ease-out both;
 }
 
 .tagline {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3.5vw, 1.6rem);
+  letter-spacing: 0.18em;
+  margin-top: 0.5rem;
+  animation: rise 1s 0.15s ease-out both;
 }
 
-@media (max-width: 600px) {
-  .logo {
-    width: 100%;
+.hero-lede {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  animation: rise 1s 0.3s ease-out both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: rise 1s 0.45s ease-out both;
+}
+
+.hero .button-solid:focus-visible,
+.section-blue .button:focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 10vw, 7rem) 1rem;
+}
+
+.section-inner {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.section-cream {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.section-cream .section-title {
+  color: var(--blue);
+}
+
+.section-blue {
+  background: var(--blue-deep);
+  color: var(--cream);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 5vw, 2.6rem);
+  letter-spacing: 0.02em;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* faint mandala behind a section. Kept static: rotating a mask this
+   detailed repaints every frame and is heavy on phones. */
+.mandala-decor {
+  position: absolute;
+  width: clamp(420px, 60vw, 760px);
+  aspect-ratio: 1;
+  background-color: currentColor;
+  -webkit-mask: url("assets/mandala.svg") center / contain no-repeat;
+  mask: url("assets/mandala.svg") center / contain no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.section-cream .mandala-decor {
+  color: var(--blue);
+}
+
+.mandala-decor-right {
+  right: -18%;
+  top: -12%;
+}
+
+.mandala-decor-left {
+  left: -22%;
+  bottom: -30%;
+}
+
+/* ---------- what we build ---------- */
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(21, 94, 149, 0.14);
+}
+
+.card h3 {
+  color: var(--blue);
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: var(--ink-soft);
+}
+
+.card-accent {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.card-accent h3,
+.card-accent p,
+.card-accent .card-icon {
+  color: var(--cream);
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--blue);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- testimonials ---------- */
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial {
+  margin: 0;
+  padding: 2.25rem 2rem 2rem;
+  border: 1px solid rgba(237, 233, 221, 0.35);
+  border-radius: 16px;
+  background: rgba(237, 233, 221, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.testimonial blockquote {
+  margin: 0;
+  position: relative;
+  padding-top: 2.25rem;
+}
+
+/* large opening quote mark */
+.testimonial blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.6rem;
+  left: -0.2rem;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.testimonial blockquote p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.testimonial figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-top: 2px solid var(--cream);
+  padding-top: 1rem;
+}
+
+.testimonial-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.testimonial-role {
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- contact ---------- */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact .section-title {
+  margin-bottom: 1rem;
+}
+
+.contact-lede {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.contact .button-solid {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--cream);
+}
+
+.contact .button-solid:hover {
+  background: var(--blue-deep);
+}
+
+.contact .button:focus-visible {
+  outline-color: var(--blue);
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- motion ---------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-.contact-details {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  border: 2px solid #ede9dd;
-  padding: 1rem;
-  border-radius: 8px;
+/* .reveal only hides content once script.js has confirmed it can show it again */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
-.contact-number {
-    color: #ede9dd;
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
