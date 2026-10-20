@@ -46,15 +46,6 @@ body {
   }
 }
 
-.footer {
-  text-align: center;
-  position: fixed;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1rem;
-}
-
 .contact-details {
   display: flex;
   justify-content: center;
