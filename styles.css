@@ -399,6 +399,27 @@ p {
   letter-spacing: 0.06em;
 }
 
+/* copyright and tagline each stay whole; they stack on narrow screens */
+.footer p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.6em;
+}
+
+.footer-part {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .footer p {
+    flex-direction: column;
+  }
+
+  .footer-separator {
+    display: none;
+  }
+}
 /* ---------- motion ---------- */
 
 @keyframes rise {
