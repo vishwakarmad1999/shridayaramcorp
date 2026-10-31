@@ -139,10 +139,18 @@ p {
 .tagline {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.15rem, 3.5vw, 1.6rem);
+  /* scales with the screen so the tagline always stays on one line */
+  font-size: clamp(0.75rem, 4.6vw, 1.6rem);
   letter-spacing: 0.18em;
+  white-space: nowrap;
   margin-top: 0.5rem;
   animation: rise 1s 0.15s ease-out both;
+}
+
+@media (max-width: 600px) {
+  .tagline {
+    letter-spacing: 0.12em;
+  }
 }
 
 .hero-lede {
